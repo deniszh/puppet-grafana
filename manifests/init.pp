@@ -33,8 +33,9 @@
 # [*install_method*]
 # Set to 'archive' to install Grafana using the tar archive.
 # Set to 'docker' to install Grafana using the official Docker container.
-# Set to 'package' to install Grafana using .deb or .rpm packages.
-# Defaults to 'package'.
+# Set to 'package' to install Grafana using .deb or .rpm packages downloaded from official website.
+# Set to 'repo' to install Grafana using .deb or .rpm packages from user maintained repo
+# Defaults to 'repo'.
 #
 # [*package_name*]
 # The name of the package managed with the 'package' install method.

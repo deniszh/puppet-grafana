@@ -71,6 +71,33 @@ class grafana::install {
         require      => User['grafana']
       }
     }
+    'repo': {
+      case $::osfamily {
+        'Debian': {
+          package { 'libfontconfig':
+            ensure => present
+          }
+
+          package { $::grafana::package_name:
+            ensure   => present,
+            require  => Package['libfontconfig']
+          }
+        }
+        'RedHat': {
+          package { 'fontconfig':
+            ensure => present
+          }
+
+          package { $::grafana::package_name:
+            ensure   => present,
+            require  => Package['fontconfig']
+          }
+        }
+        default: {
+          fail("${::operatingsystem} not supported")
+        }
+      }
+    }
     default: {
       fail("Installation method ${::grafana::install_method} not supported")
     }

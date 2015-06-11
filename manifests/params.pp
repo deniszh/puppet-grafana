@@ -12,7 +12,7 @@ class grafana::params {
   $docker_image     = 'grafana/grafana:latest'
   $docker_ports     = '3000:3000'
   $install_dir      = '/usr/share/grafana'
-  $install_method   = 'package'
+  $install_method   = 'repo'
   $package_name     = 'grafana'
   $service_name     = 'grafana-server'
   $version          = '2.0.2'
